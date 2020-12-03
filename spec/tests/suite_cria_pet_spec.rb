@@ -1,22 +1,37 @@
 require_relative '../../app/pet.rb'
 require_relative '../supports/factories/Fabria_cria_pet/fabrica_cria_pet.rb'
 
-describe 'criando meu pet'do
+describe 'Valida criação, alteração, busca e exclusão de pets' do
     subject(:pet) {PetApi.new}
     let(:obj_pet)     {attributes_for(:attr_fabrica_cria_pet)}
     
-    context'testes de criar pet'do
+    context'cria pets'do
 
-        it'validando a criacao do pet'do
-            puts data_pet_criado = pet.cria_novo_pet(obj_pet)
-            puts id_pet = data_pet_criado['id']
+        it'validando a criacão do pet'do
+            data_pet_criado = pet.cria_novo_pet(obj_pet)
+            id_pet = data_pet_criado['id']
             expect(data_pet_criado.code).to eq(200)
             expect(data_pet_criado['id']). to eq(id_pet)
+        end
+
+        it 'cria pet com status pending' do
+            obj = attributes_for(:attr_fabrica_cria_pet, :status_pending)
+            data_pet_criado = pet.cria_novo_pet(obj)
+            expect(data_pet_criado.code).to eq(200)
+            expect(data_pet_criado['status']).to eq('pending')
+        end
+
+        it 'criando um pet status sold' do
+            obj = attributes_for(:attr_fabrica_cria_pet, :status_sold)
+            data_pet_criado = pet.cria_novo_pet(obj)
+            expect(data_pet_criado.code).to eq(200)
+            expect(data_pet_criado['status']).to eq('sold')
         end
     end
     
     context'Atualiza um pet'do
-        it "atualizando um pet" do
+
+        it 'atualizando o status de pet um pet existente' do
             data_pet_criado = pet.cria_novo_pet(obj_pet)
             obj_pet['id'] = data_pet_criado['id']
             obj_pet['status'] = 'pending'
@@ -25,6 +40,14 @@ describe 'criando meu pet'do
             expect(data_pet_criado['status']).to eq('available')
             expect(data_atualizando_Pet.code).to eq(200)
             expect(data_atualizando_Pet['status']).to eq('pending')
+        end
+
+        it 'atualizando o id de uma categoria' do
+            data_pet_criado = pet.cria_novo_pet(obj_pet)
+            novo_id = obj_pet[:category][:id] = Faker::Number.number(digits: 4)
+            data_atualizando_Pet = pet.atualiza_um_pet_existente(obj_pet)
+            expect(data_atualizando_Pet.code).to eq(200)
+            expect(data_atualizando_Pet['category']['id']).to eq(novo_id)
         end
         
         it "atualiza pet por formulario passando o pet id" do

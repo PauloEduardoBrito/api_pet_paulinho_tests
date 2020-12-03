@@ -8,6 +8,9 @@ GEM
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2, >= 2.2.2)
     concurrent-ruby (1.1.7)
+    debase (0.2.4.1)
+      debase-ruby_core_source (>= 0.10.2)
+    debase-ruby_core_source (0.10.11)
     diff-lcs (1.4.4)
     dotenv (2.7.6)
     factory_bot (6.1.0)
@@ -52,6 +55,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  debase
   dotenv
   factory_bot
   faker

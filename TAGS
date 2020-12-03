@@ -1,0 +1,38 @@
+
+app/pet.rb,400
+class PetApiPetApi2,0
+    def cria_novo_pet(objeto)cria_novo_pet4,0
+    def atualiza_um_pet_existente(objeto)atualiza_um_pet_existente11,0
+    def busca_por_status(status)busca_por_status18,0
+    def buca_por_pet_id(pet_id) buca_por_pet_id25,0
+    def atualiza_pet_por_pet_id_com_forms(pet_id, name, status)atualiza_pet_por_pet_id_com_forms32,0
+    def deleta_pet(pet_id)deleta_pet40,0
+
+spec/supports/models/modelo_cria_pet/model_cria_pet.rb,984
+class ModelCriaPetModelCriaPet1,0
+    attr_accessor :id, :category, :name, :photoUrls, :tags, :statusid2,0
+    attr_accessor :id, :category, :name, :photoUrls, :tags, :statusid=2,0
+    attr_accessor :id, :category, :name, :photoUrls, :tags, :statuscategory2,0
+    attr_accessor :id, :category, :name, :photoUrls, :tags, :statuscategory=2,0
+    attr_accessor :id, :category, :name, :photoUrls, :tags, :statusname2,0
+    attr_accessor :id, :category, :name, :photoUrls, :tags, :statusname=2,0
+    attr_accessor :id, :category, :name, :photoUrls, :tags, :statusphotoUrls2,0
+    attr_accessor :id, :category, :name, :photoUrls, :tags, :statusphotoUrls=2,0
+    attr_accessor :id, :category, :name, :photoUrls, :tags, :statustags2,0
+    attr_accessor :id, :category, :name, :photoUrls, :tags, :statustags=2,0
+    attr_accessor :id, :category, :name, :photoUrls, :tags, :statusstatus2,0
+    attr_accessor :id, :category, :name, :photoUrls, :tags, :statusstatus=2,0
+
+spec/supports/models/modelo_cria_pet/model_cria_pet_category.rb,202
+class ModelCriaPetCategoryModelCriaPetCategory1,0
+    attr_accessor :id, :nameid2,0
+    attr_accessor :id, :nameid=2,0
+    attr_accessor :id, :namename2,0
+    attr_accessor :id, :namename=2,0
+
+spec/supports/models/modelo_cria_pet/model_cria_pet_tags.rb,194
+class ModelCriaPetTagsModelCriaPetTags1,0
+    attr_accessor :id, :nameid2,0
+    attr_accessor :id, :nameid=2,0
+    attr_accessor :id, :namename2,0
+    attr_accessor :id, :namename=2,0
