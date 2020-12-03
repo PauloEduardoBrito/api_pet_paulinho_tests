@@ -22,7 +22,7 @@ class PetApi
     end
     
     #Busca um pet existente pelo pet Id
-    def buca_por_pet_id(pet_id) 
+    def busca_por_pet_id(pet_id) 
         uri = "#{ENV['BASE_URI']}/pet/#{pet_id}"
         
         without_authentication('get', uri)
