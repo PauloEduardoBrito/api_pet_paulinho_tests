@@ -41,6 +41,5 @@ class PetApi
         uri = "#{ENV['BASE_URI']}/pet/#{pet_id}"
 
         without_authentication('delete', uri)
-    end
-
+    end    
 end

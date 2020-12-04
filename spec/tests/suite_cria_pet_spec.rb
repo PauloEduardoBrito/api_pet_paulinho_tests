@@ -92,5 +92,25 @@ describe 'Valida criação, alteração, busca e exclusão de pets' do
             expect(delete_pet.code).to eq(200)
             expect(delete_pet['message']).to eq("#{retorno}")
         end
+        
+
+        #Este it foi criado apenas para deletar a base criada de acordo com um status passado, não existe expect nela.
+        xit 'deletando toda a base por status'do
+             busca_pet = pet.busca_por_status('available')
+             count = 0
+             while resultado = busca_pet.any? {|data| data['id'] != 0} 
+                if busca_pet[count]['id'].nil?
+                     puts 'chegou aqui'
+                     break
+                else 
+                    id = busca_pet[count]['id']
+                    puts id
+                    deleta = pet.deleta_pet(id)
+                    count = count +1
+                end
+             end
+        end
+                   
     end
+
 end
